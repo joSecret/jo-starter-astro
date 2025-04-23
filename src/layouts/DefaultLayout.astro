@@ -5,6 +5,8 @@ import SiteMeta from '../components/SiteMeta.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
+const isDev = import.meta.env.MODE === 'development';
+
 const {
   title = 'Astro',
   description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
@@ -29,6 +31,8 @@ const {
     <Header />
     <main id="main-content" transition:animate="fade">
       <slot />
+
+      {isDev && 'Bla bla bal'}
     </main>
     <Footer />
     <style lang="scss" is:global>
