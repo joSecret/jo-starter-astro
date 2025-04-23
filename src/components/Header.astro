@@ -1,4 +1,5 @@
 ---
+import BaseLink from './BaseLink.astro'
 import Navigation from '../components/Navigation.astro'
 import { SkipLink } from 'accessible-astro-components'
 import { Icon } from 'astro-icon/components'
@@ -20,7 +21,7 @@ import { Icon } from 'astro-icon/components'
       <button aria-haspopup="true" aria-expanded="false">Example Pages</button>
       <ul class="dropdown-menu">
         <li class="submenu-item">
-          <a href="/jo-starter-astro/mdx-page/">MDX Page</a>
+          <BaseLink href="/mdx-page" class="nav-link">MDX Page</BaseLink>
         </li>
         <li class="submenu-item">
           <a href="/jo-starter-astro/markdown-page/">Markdown Page</a>

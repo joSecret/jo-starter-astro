@@ -1,0 +1,24 @@
+---
+// src/components/BaseLink.astro
+
+const { href = '', class: className = '', activeClass = 'active', ...props } = Astro.props;
+
+import config from '@root/astro.config.mjs';
+const base = config.base ?? '';
+const finalHref = href.startsWith('/') ? base + href : href;
+
+// Path-ul curent
+const currentPath = Astro.url.pathname;
+
+// Comparăm doar partea de path, fără `base`
+const isActive = href === currentPath;
+
+// Dacă e activ, adăugăm `activeClass`
+const finalClass = isActive
+  ? `${className} ${activeClass}`.trim()
+  : className;
+---
+
+<a href={finalHref} class={finalClass} {...props}>
+  <slot />
+</a>
